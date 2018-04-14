@@ -16,8 +16,15 @@ public class Shooter : Character
 
     private Vector3 ShooterMove;
     private Vector3 DirectionShooter;
-    
-    private float DistanceFromPlayer = 5;
+
+    public float Cooldown = 0.5f;
+    public float bulletSpeed = 2;   
+    public bool CanShoot = true;
+    public GameObject bullet;
+    public Transform gunPoint;
+
+    [SerializeField]
+    private float DistanceFromPlayer = 10;
 
     // Use this for initialization
     void Start()
@@ -28,22 +35,46 @@ public class Shooter : Character
     // Update is called once per frame
     void Update()
     {
-        PlayerPosition = GameManager.Instance.players[0].transform.position;
-        distance = Vector3.Distance(PlayerPosition, gameObject.transform.position);
-        if (distance <= DistanceFromPlayer)
+        if (GameManager.Instance.players[0] != null)
         {
-            idle = false;
-            DirectionShooter = aiShooter.transform.position - PlayerPosition;
-            DirectionShooter = DirectionShooter.normalized;
-            DirectionShooter = DirectionShooter * DistanceFromPlayer;
-            print(DirectionShooter);
-            aiShooter.destination = transform.position + DirectionShooter;
-        }
-        else
-        {
-            idle = true;
+            PlayerPosition = GameManager.Instance.players[0].transform.position;
+            distance = Vector3.Distance(PlayerPosition, gameObject.transform.position);
+            if (distance <= DistanceFromPlayer)
+            {
+                idle = false;
+                DirectionShooter = aiShooter.transform.position - PlayerPosition;
+                DirectionShooter = DirectionShooter.normalized;
+                DirectionShooter = DirectionShooter * DistanceFromPlayer;
+//                print(DirectionShooter);
+                aiShooter.destination = transform.position + DirectionShooter;
+            }
+            else if (idle == false)
+            {
+                print("Launch");
+                idle = true;
+                StartCoroutine(Shoot());
+            }
         }
         
+        
+    }
+    
+
+
+    IEnumerator Shoot()
+    {
+        while (idle)
+        {
+            print("Shoot ! ");
+            GameObject gO = Instantiate(bullet, gunPoint.transform.position, Quaternion.identity);
+            Bullet bull = gO.GetComponent<Bullet>();
+            Vector3 direction = (PlayerPosition - transform.position).normalized;
+            CanShoot = false;
+            yield return new WaitForSeconds(Cooldown);
+            CanShoot = true;
+        }
+        print("Stop shooting to run");
+
     }
 
     IEnumerator MaCoroutine()
@@ -66,5 +97,9 @@ public class Shooter : Character
     public override void Die()
     {
         throw new System.NotImplementedException();
+    }
+    public override void Hit()
+    {
+        life--;
     }
 }

@@ -58,6 +58,9 @@ public class Enemy : Character
 	{
 		Debug.Log("enemy is dead");
 	}
+    public override void Hit()
+    {
+        life--;
+    }
 
-  
 }

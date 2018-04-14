@@ -140,4 +140,8 @@ public class Player : Character {
     {
         throw new System.NotImplementedException();
     }
+    public override void Hit()
+    {
+        life--;
+    }
 }

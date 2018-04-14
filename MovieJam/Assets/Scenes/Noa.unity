@@ -153,65 +153,37 @@ Prefab:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1598963129515034, guid: 928be7bdd010b67418dbd9985e2d8e61, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23577182767150108, guid: 928be7bdd010b67418dbd9985e2d8e61,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: cdfc48af4e858ff46ba8838621703099, type: 2}
-    - target: {fileID: 1598963129515034, guid: 928be7bdd010b67418dbd9985e2d8e61, type: 2}
       propertyPath: m_Name
       value: Shooter
       objectReference: {fileID: 0}
-    - target: {fileID: 33177513195784242, guid: 928be7bdd010b67418dbd9985e2d8e61,
+    - target: {fileID: 114515601851311422, guid: 928be7bdd010b67418dbd9985e2d8e61,
         type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 1932430010203680, guid: 928be7bdd010b67418dbd9985e2d8e61, type: 2}
-      propertyPath: m_Name
-      value: Cube
+      propertyPath: bulletSpeed
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1932430010203680, guid: 928be7bdd010b67418dbd9985e2d8e61, type: 2}
-      propertyPath: m_IsActive
+    - target: {fileID: 114515601851311422, guid: 928be7bdd010b67418dbd9985e2d8e61,
+        type: 2}
+      propertyPath: Cooldown
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4183655360100190, guid: 928be7bdd010b67418dbd9985e2d8e61, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1.85
+    - target: {fileID: 114515601851311422, guid: 928be7bdd010b67418dbd9985e2d8e61,
+        type: 2}
+      propertyPath: DistanceFromPlayer
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1932430010203680, guid: 928be7bdd010b67418dbd9985e2d8e61, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
+    - target: {fileID: 114515601851311422, guid: 928be7bdd010b67418dbd9985e2d8e61,
+        type: 2}
+      propertyPath: debug_one
+      value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114111109321042674, guid: 928be7bdd010b67418dbd9985e2d8e61, type: 2}
+    - target: {fileID: 114515601851311422, guid: 928be7bdd010b67418dbd9985e2d8e61,
+        type: 2}
+      propertyPath: debug_two
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 928be7bdd010b67418dbd9985e2d8e61, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &917764113 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1932430010203680, guid: 928be7bdd010b67418dbd9985e2d8e61,
-    type: 2}
-  m_PrefabInternal: {fileID: 917764112}
---- !u!195 &917764114 stripped
-NavMeshAgent:
-  m_PrefabParentObject: {fileID: 195514663516694110, guid: 928be7bdd010b67418dbd9985e2d8e61,
-    type: 2}
-  m_PrefabInternal: {fileID: 917764112}
---- !u!114 &917764115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 917764113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6546c2bba2cc5e8408392afa93b3e900, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiShooter: {fileID: 917764114}
 --- !u!1 &1467482852
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +217,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  numberOfPlayer: 0
+  controllerTaken: 
+  waves: []
 --- !u!4 &1467482854
 Transform:
   m_ObjectHideFlags: 0
@@ -252,7 +227,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1467482852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6235151, y: -0.03900385, z: 1.1412933}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -467,7 +442,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1598963129515034, guid: 928be7bdd010b67418dbd9985e2d8e61, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23577182767150108, guid: 928be7bdd010b67418dbd9985e2d8e61,
         type: 2}
@@ -492,7 +467,7 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114111109321042674, guid: 928be7bdd010b67418dbd9985e2d8e61, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 928be7bdd010b67418dbd9985e2d8e61, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1877752584

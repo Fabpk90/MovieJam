@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1139342641980934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.0279286, y: 2.2035322, z: -6.5693297}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4089786124515266}
@@ -142,6 +142,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiAgent: {fileID: 195478104241500970}
+  leftTrigger: 
+  rightTrigger: 
+  aButton: 0
+  bButton: 0
+  xButton: 0
+  yButton: 0
+  axis1X: 
+  axis2X: 
+  axis1Y: 
+  axis2Y: 
+  mouseFollow: 0
 --- !u!136 &136057506504717392
 CapsuleCollider:
   m_ObjectHideFlags: 1

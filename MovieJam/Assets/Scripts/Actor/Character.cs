@@ -9,4 +9,5 @@ abstract public class Character : MonoBehaviour {
 	protected List<Limb> list;
 
 	abstract public void Die ();
+    abstract public void Hit ();
 }

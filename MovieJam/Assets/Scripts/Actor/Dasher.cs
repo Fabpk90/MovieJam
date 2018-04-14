@@ -77,4 +77,10 @@ public class Dasher : Character
     {
         throw new System.NotImplementedException();
     }
+
+    public override void Hit()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }
