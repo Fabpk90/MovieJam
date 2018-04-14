@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && players[0] == null)
         {
             players[0] = Instantiate(playerGO, this.transform.position, this.transform.rotation).GetComponent<Player>();
+            //define player one with keyboard
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && players[0] == null)
+        {
+            players[0] = Instantiate(playerGO, this.transform.position, this.transform.rotation).GetComponent<Player>();
         }
     }
 }
