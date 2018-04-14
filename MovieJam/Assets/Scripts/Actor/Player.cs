@@ -135,4 +135,9 @@ public class Player : Character {
 
 
     }
+
+    public override void Die()
+    {
+        throw new System.NotImplementedException();
+    }
 }
