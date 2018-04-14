@@ -8,6 +8,9 @@ public class Player : Character {
 	[SerializeField]
 	private NavMeshAgent aiAgent;
 
+	[SerializeField]
+	private int movementSpeed = 8;
+
     //Unput :
     public string leftTrigger;
     public string rightTrigger;
@@ -25,6 +28,8 @@ public class Player : Character {
 	// Use this for initialization
 	void Start () {
 		movementVec = new Vector3 ();
+
+		aiAgent.acceleration = movementSpeed;
 	}
 	
 	// Update is called once per frame

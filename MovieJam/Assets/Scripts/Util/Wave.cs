@@ -5,39 +5,25 @@ using UnityEngine;
 [System.Serializable]
 public class Wave  {
 
-	[SerializeField]
-	public List<SpawnPoint> spawnPoints;
-
-	[SerializeField]
-	public List<Enemy> enemiesToSpawn;
-	[SerializeField]
-	public int monsterCount;
-
-	[SerializeField]
-	public float cooldownSpawn;
-
-	//ajouter une liste de monstres ?
-
-	public void monsterIsDead()
+	[System.Serializable]
+	public class WaveSpawner
 	{
-		monsterCount--;
-		if (monsterCount == 0)
-			GameManager.Instance.nextWave ();
+		[SerializeField]
+		public SpawnPoint spawnPoint;
+
+		[SerializeField]
+		public int typeToSpawn;
+
+		[SerializeField]
+		public int nbToSpawn;
 	}
 
-	public int getMonsterRemaining()
-	{
-		return monsterCount;
-	}
 
-	public SpawnPoint getAvaibleSpawnPoint()
-	{
-		foreach (SpawnPoint sp in spawnPoints) 
-		{
-			if (sp.isSpawnAvaible ())
-				return sp;
-		}
 
-		return null;
-	}
+	[SerializeField]
+	public List<WaveSpawner> spawners;
+
+	[SerializeField, Tooltip("Le temps avant de lancer la prochaine wave")]
+	public float cooldownWave;
+
 }
