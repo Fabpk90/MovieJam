@@ -23,6 +23,7 @@ public class Player : Character {
     public bool mouseFollow = false;
 
     private Vector3 movementVec;
+    public float bulletSpeed = 2;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -58,7 +59,7 @@ public class Player : Character {
         {
             print("Trigger Left");
         }
-        print(Input.GetAxis(leftTrigger) + "Fire = "+leftTrigger);
+//        print(Input.GetAxis(leftTrigger) + "Fire = "+leftTrigger);
         if (Input.GetKey(rButton) && Input.GetAxisRaw(rightTrigger) != 0)
         {
             print("Drop a right hand !");
@@ -80,7 +81,7 @@ public class Player : Character {
             if (listLimb[0] != null)
             {
                 Vector3 direction = lookDirection();
-                listLimb[0].GetComponent<AttackingLimb>().attack( direction); 
+                listLimb[0].GetComponent<AttackingLimb>().attack( direction, bulletSpeed, true); 
             }
         }/*
         if (Input.GetKeyDown(bButton))
@@ -228,5 +229,9 @@ public class Player : Character {
     public void TryAddLimb(Limb limb)
     {
         int indexOfEnum = (int)limb.partPlace;
+        if (listLimb[indexOfEnum] == null)
+        {
+            listLimb[indexOfEnum] = limb;
+        }
     }
 }

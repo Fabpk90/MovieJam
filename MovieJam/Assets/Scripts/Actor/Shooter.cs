@@ -69,6 +69,7 @@ public class Shooter : Character
             GameObject gO = Instantiate(bullet, gunPoint.transform.position, Quaternion.identity);
             Bullet bull = gO.GetComponent<Bullet>();
             Vector3 direction = (PlayerPosition - transform.position).normalized;
+            bull.init(direction, bulletSpeed, false);
             CanShoot = false;
             yield return new WaitForSeconds(Cooldown);
             CanShoot = true;
