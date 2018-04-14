@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
 	private int actualWave = 0;
 
     public Player[] players = new Player[4];
+    public int numberOfPlayer = 0;
+    public List<int> controllerTaken = new List<int>(); //0 = keyboard n = gamepad N
 
 	[SerializeField]
 	private Wave[] waves;
@@ -26,6 +28,8 @@ public class GameManager : MonoBehaviour {
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
+
+           Debug.Log( Input.GetJoystickNames().Length );
         }
         else
         {
@@ -35,12 +39,54 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
+
+        /*
+
         if (Input.GetKeyDown(KeyCode.Space) && players[0] == null)
         {
             players[0] = Instantiate(playerGO, this.transform.position, this.transform.rotation).GetComponentInChildren<Player>();
 			playerSpawned ();
         }
         
+    */
+        if(Input.GetKeyDown(KeyCode.Space) && !controllerTaken.Contains(-1))
+        {
+            controllerTaken.Add(-1);
+            createNewPlayer(-1);
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0) && !controllerTaken.Contains(1))
+        {
+            controllerTaken.Add(1);
+            createNewPlayer(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick2Button0) && !controllerTaken.Contains(2))
+        {
+            controllerTaken.Add(2);
+            createNewPlayer(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick3Button0) && !controllerTaken.Contains(3))
+        {
+            controllerTaken.Add(3);
+            createNewPlayer(3);
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick4Button0) && !controllerTaken.Contains(4))
+        {
+            controllerTaken.Add(4);
+            createNewPlayer(4);
+        }
+
+
+
+
+
+    }
+
+    public void createNewPlayer(int controller)
+    {
+        Player plInst = Instantiate(playerGO, this.transform.position, this.transform.rotation).GetComponentInChildren<Player>();
+        plInst.changeController(controller);
+
+        players[numberOfPlayer] = plInst;
     }
 
 	private void playerSpawned()
