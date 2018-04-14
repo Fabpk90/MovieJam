@@ -33,6 +33,36 @@ public class Player : Character {
 		movementVec.z = Input.GetAxis(axis1Y);
 
         aiAgent.destination = aiAgent.transform.position + movementVec;
+
+        //Use members
+        if (Input.GetAxisRaw(leftTrigger) != 0)
+        {
+
+        }
+        if (Input.GetAxisRaw(rightTrigger) != 0)
+        {
+
+        }
+
+        //Drop members
+        if (Input.GetKeyDown(aButton))
+        {
+
+        }
+        if (Input.GetKeyDown(bButton))
+        {
+
+        }
+        if (Input.GetKeyDown(xButton))
+        {
+
+        }
+        if (Input.GetKeyDown(yButton))
+        {
+
+        }
+
+
     }
 
 
