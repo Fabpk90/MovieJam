@@ -12,6 +12,7 @@ public class Enemy : Character
     private NavMeshAgent aiEnemy;
     bool idle = false;
 
+	private Wave spawnedWave;
 
     private Vector3 EnemyMove;
     // Use this for initialization
@@ -52,4 +53,9 @@ public class Enemy : Character
             StartCoroutine(MaCoroutine());
         }
     }
+
+	public override void Die ()
+	{
+		Debug.Log("enemy is dead");
+	}
 }
