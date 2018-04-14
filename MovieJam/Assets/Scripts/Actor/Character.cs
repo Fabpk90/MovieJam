@@ -7,4 +7,6 @@ abstract public class Character : MonoBehaviour {
 	protected uint life;
 	protected float velocity;
 	protected List<Limb> list;
+
+	abstract public void Die ();
 }

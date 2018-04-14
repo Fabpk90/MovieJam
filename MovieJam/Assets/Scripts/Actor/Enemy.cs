@@ -9,6 +9,7 @@ public class Enemy : Character {
     private NavMeshAgent aiEnemy;
 
 
+	private Wave spawnedWave;
 
     private Vector3 EnemyMove;
     // Use this for initialization
@@ -23,4 +24,9 @@ public class Enemy : Character {
 
 
     }
+
+	public override void Die ()
+	{
+		Debug.Log("enemy is dead");
+	}
 }

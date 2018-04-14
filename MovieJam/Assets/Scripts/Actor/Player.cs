@@ -25,4 +25,9 @@ public class Player : Character {
 
 		aiAgent.destination = aiAgent.transform.position + movementVec;
 	}
+
+	public override void Die ()
+	{
+		print ("I'm motherfucking dead bitches !");
+	}
 }
