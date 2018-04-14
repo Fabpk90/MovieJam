@@ -1,9 +1,9 @@
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-Assets/AssetStoreTools*
+MovieJam/[Ll]ibrary/
+MovieJam/[Tt]emp/
+MovieJam/[Oo]bj/
+MovieJam/[Bb]uild/
+MovieJam/[Bb]uilds/
+MovieJam/Assets/AssetStoreTools*
 
 # Visual Studio cache directory
 /.vs/
