@@ -32,6 +32,8 @@ public class Player : Character {
 		movementVec.x = Input.GetAxis(axis1X);
 		movementVec.z = Input.GetAxis(axis1Y);
 
+        //Here, lower the speed in function of your limbs
+
         aiAgent.destination = aiAgent.transform.position + movementVec;
 
 
