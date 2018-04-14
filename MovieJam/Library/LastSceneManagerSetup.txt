@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Noa.unity
+- path: Assets/Scenes/Horace.unity
   isLoaded: 1
   isActive: 1
