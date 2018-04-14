@@ -62,4 +62,9 @@ public class Shooter : Character
             //StartCoroutine(MaCoroutine());
         }
     }
+
+    public override void Die()
+    {
+        throw new System.NotImplementedException();
+    }
 }

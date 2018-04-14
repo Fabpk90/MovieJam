@@ -58,4 +58,6 @@ public class Enemy : Character
 	{
 		Debug.Log("enemy is dead");
 	}
+
+  
 }

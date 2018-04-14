@@ -72,4 +72,9 @@ public class Dasher : Character
             StartCoroutine(MaCoroutineCollision());
         }
     }
+
+    public override void Die()
+    {
+        throw new System.NotImplementedException();
+    }
 }
