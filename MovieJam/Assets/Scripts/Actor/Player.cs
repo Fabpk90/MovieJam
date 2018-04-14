@@ -18,6 +18,7 @@ public class Player : Character {
     public KeyCode bButton;
     public KeyCode xButton;
     public KeyCode yButton;
+    public KeyCode rButton;
     public string axis1X;
     public string axis2X;
     public string axis1Y;
@@ -25,8 +26,20 @@ public class Player : Character {
     public bool mouseFollow = false;
 
     private Vector3 movementVec;
-	// Use this for initialization
-	void Start () {
+    public float bulletSpeed = 2;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Limb limb = collision.gameObject.GetComponent<Limb>();
+        if (limb != null ){
+            print("Limb ! " + limb.name );
+            TryAddLimb(limb);
+        }
+    }
+
+
+    // Use this for initialization
+    void Start () {
 		movementVec = new Vector3 ();
 
 		aiAgent.acceleration = movementSpeed;
@@ -39,25 +52,43 @@ public class Player : Character {
 
         //Here, lower the speed in function of your limbs
 
+
         aiAgent.destination = aiAgent.transform.position + movementVec;
 
 
         //Use members
-        if (Input.GetAxisRaw(leftTrigger) != 0)
+        if(Input.GetKey(rButton) && Input.GetAxisRaw(leftTrigger) != 0) {
+            print("Drop a left hand !");
+        }
+        else if (Input.GetAxis(leftTrigger) != 0)
         {
             print("Trigger Left");
         }
-        if (Input.GetAxisRaw(rightTrigger) != 0)
+//        print(Input.GetAxis(leftTrigger) + "Fire = "+leftTrigger);
+        if (Input.GetKey(rButton) && Input.GetAxisRaw(rightTrigger) != 0)
+        {
+            print("Drop a right hand !");
+        }
+        else if (Input.GetAxisRaw(rightTrigger) != 0)
         {
             print("Trigger Right");
         }
 
-        //Drop members
+        if (Input.GetKeyDown(rButton))
+        {
+            print("R");
+
+        }
+
         if (Input.GetKeyDown(aButton))
         {
             print("A");
-
-        }
+            if (listLimb[0] != null)
+            {
+                Vector3 direction = lookDirection();
+                listLimb[0].GetComponent<AttackingLimb>().attack( direction, bulletSpeed, true); 
+            }
+        }/*
         if (Input.GetKeyDown(bButton))
         {
             print("b");
@@ -72,7 +103,7 @@ public class Player : Character {
         {
             print("Y");
 
-        }
+        }*/
 
 
     }
@@ -106,6 +137,8 @@ public class Player : Character {
                 bButton = KeyCode.Joystick1Button1;
                 xButton = KeyCode.Joystick1Button2;
                 yButton = KeyCode.Joystick1Button3;
+                /*rButton = KeyCode.Joystick1Button4;*/
+                rButton = KeyCode.Joystick1Button5;
                 axis1X = "Horizontal1";
                 axis1Y = "Vertical1";
                 axis2X = "Horizontal1-r";
@@ -118,6 +151,8 @@ public class Player : Character {
                 bButton = KeyCode.Joystick2Button1;
                 xButton = KeyCode.Joystick2Button2;
                 yButton = KeyCode.Joystick2Button3;
+                /*yButton = KeyCode.Joystick2Button4;*/
+                rButton = KeyCode.Joystick2Button5;
                 axis1X = "Horizontal2";
                 axis1Y = "Vertical2";
                 axis2X = "Horizontal2-r";
@@ -130,6 +165,8 @@ public class Player : Character {
                 bButton = KeyCode.Joystick3Button1;
                 xButton = KeyCode.Joystick3Button2;
                 yButton = KeyCode.Joystick3Button3;
+                /*yButton = KeyCode.Joystick2Button4;*/
+                rButton = KeyCode.Joystick2Button5;
                 axis1X = "Horizontal3";
                 axis1Y = "Vertical3";
                 axis2X = "Horizontal3-r";
@@ -142,6 +179,8 @@ public class Player : Character {
                 bButton = KeyCode.Joystick4Button1;
                 xButton = KeyCode.Joystick4Button2;
                 yButton = KeyCode.Joystick4Button3;
+                /*yButton = KeyCode.Joystick2Button4;*/
+                rButton = KeyCode.Joystick2Button5;
                 axis1X = "Horizontal4";
                 axis1Y = "Vertical4";
                 axis2X = "Horizontal4-r";
@@ -154,6 +193,7 @@ public class Player : Character {
                 bButton = KeyCode.Keypad2;
                 xButton = KeyCode.Keypad3;
                 yButton = KeyCode.Keypad4;
+                rButton = KeyCode.R;
                 axis1X = "Horizontal";
                 axis1Y = "Vertical";
                 mouseFollow = true;
@@ -170,5 +210,33 @@ public class Player : Character {
     public override void Hit()
     {
         life--;
+        if(life == 0)
+        {
+            Die();
+        }
+        else
+        {
+            int rand = Random.Range(0, (int)life);
+            for (int i = 0; i < 4; i++)
+            {
+                if (listLimb[i] != null)
+                {
+                    if(rand == 0)
+                    {
+                        listLimb[i].dropped(/*position dans tableau*/transform.position,Quaternion.identity);
+                        listLimb[i] = null;
+                    }
+                }
+            }
+        }
+    }
+
+    public void TryAddLimb(Limb limb)
+    {
+        int indexOfEnum = (int)limb.partPlace;
+        if (listLimb[indexOfEnum] == null)
+        {
+            listLimb[indexOfEnum] = limb;
+        }
     }
 }

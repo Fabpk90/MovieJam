@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Limb : MonoBehaviour {
 
-	enum EBodyParts
+	public enum EBodyParts
 	{
-		HEAD = 0,
-		TORSO,
-		RARM,
-		LARM,
-		RLEG,
-		LLEG
+        LARM,
+        RARM,
+        LLEG,
+        RLEG,
+        HEAD = 0,
+		TORSO
+		
 	}
 
 	[SerializeField]
-	private EBodyParts partPlace;
+	public EBodyParts partPlace;
 
 	[SerializeField]
 	private Animator animator;
@@ -31,4 +32,12 @@ public class Limb : MonoBehaviour {
 		//plays the animation of the limb and then destry itself
 		//should spawn a copy or itself somewhere in the map
 	}
+
+    public void dropped(Vector3 position, Quaternion rotation)
+    {
+        transform.SetParent(null);
+        
+    }
+
+
 }

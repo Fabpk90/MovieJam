@@ -6,7 +6,7 @@ abstract public class Character : MonoBehaviour {
 
 	protected uint life;
 	protected float velocity;
-	protected List<Limb> list;
+	protected Limb[] listLimb = new Limb[4];
 
 	abstract public void Die ();
     abstract public void Hit ();
