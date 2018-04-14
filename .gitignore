@@ -33,3 +33,10 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+MovieJam/Assets/Scenes/Noa/NavMesh\.asset~HEAD\.meta
+
+MovieJam/Assets/Scenes/Noa/NavMesh\.asset~master\.meta
+
+MovieJam/Assets/Scripts/Actor/Enemy\.cs\.meta~HEAD\.meta
+
+MovieJam/Assets/Scripts/Actor/Enemy\.cs\.meta~master\.meta
