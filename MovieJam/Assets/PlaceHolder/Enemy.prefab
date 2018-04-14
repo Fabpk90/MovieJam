@@ -54,8 +54,9 @@ GameObject:
   - component: {fileID: 23577182767150108}
   - component: {fileID: 195514663516694110}
   - component: {fileID: 114515601851311422}
+  - component: {fileID: 114535635319599420}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1598963129515034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8097534, y: -8.58, z: 6.69}
+  m_LocalPosition: {x: -0.8097534, y: -8.58, z: -12.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4183655360100190}
@@ -116,7 +117,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: cdfc48af4e858ff46ba8838621703099, type: 2}
+  - {fileID: 2100000, guid: 7fa232a85639e9246a784c753aeacb13, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -142,7 +143,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1932430010203680}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114515601851311422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,11 +156,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiShooter: {fileID: 195514663516694110}
-  Cooldown: 0.5
-  bulletSpeed: 2
+  Cooldown: 1
+  bulletSpeed: 10
   CanShoot: 1
   bullet: {fileID: 1295130415161020, guid: 233b3f97591053a468d9abcbfb04136a, type: 2}
   gunPoint: {fileID: 4243364595469572}
+  DistanceFromPlayer: 10
+--- !u!114 &114535635319599420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1932430010203680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647ac819fb9c8fa4c8e7c83d93c6b434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiDasher: {fileID: 195514663516694110}
 --- !u!135 &135318641730913384
 SphereCollider:
   m_ObjectHideFlags: 1
