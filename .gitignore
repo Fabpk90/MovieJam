@@ -1,8 +1,8 @@
-MovieJam/[Ll]ibrary/
-MovieJam/[Tt]emp/
-MovieJam/[Oo]bj/
-MovieJam/[Bb]uild/
-MovieJam/[Bb]uilds/
+MovieJam/Library/
+MovieJam/Temp/
+MovieJam/Obj/
+MovieJam/Build/
+MovieJam/Builds/
 MovieJam/Assets/AssetStoreTools*
 
 # Visual Studio cache directory
