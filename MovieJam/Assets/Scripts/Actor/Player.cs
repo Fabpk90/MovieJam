@@ -34,37 +34,57 @@ public class Player : Character {
 
         aiAgent.destination = aiAgent.transform.position + movementVec;
 
+
         //Use members
         if (Input.GetAxisRaw(leftTrigger) != 0)
         {
-
+            print("Trigger Left");
         }
         if (Input.GetAxisRaw(rightTrigger) != 0)
         {
-
+            print("Trigger Right");
         }
 
         //Drop members
         if (Input.GetKeyDown(aButton))
         {
+            print("A");
 
         }
         if (Input.GetKeyDown(bButton))
         {
+            print("b");
 
         }
         if (Input.GetKeyDown(xButton))
         {
+            print("X");
 
         }
         if (Input.GetKeyDown(yButton))
         {
+            print("Y");
 
         }
 
 
     }
 
+    public Vector3 lookDirection()
+    {
+        Vector3 res = Vector3.zero;
+        if (mouseFollow)
+        {
+            
+        }
+        else
+        {
+            res.x = Input.GetAxis(axis1X);
+            res.z = Input.GetAxis(axis1Y);
+        }
+
+        return res;
+    }
 
 
 
@@ -87,10 +107,10 @@ public class Player : Character {
             case 2:
                 leftTrigger = "Fire2";
                 rightTrigger = "Fire2-r";
-                aButton = KeyCode.Joystick1Button0;
-                bButton = KeyCode.Joystick1Button1;
-                xButton = KeyCode.Joystick1Button2;
-                yButton = KeyCode.Joystick1Button3;
+                aButton = KeyCode.Joystick2Button0;
+                bButton = KeyCode.Joystick2Button1;
+                xButton = KeyCode.Joystick2Button2;
+                yButton = KeyCode.Joystick2Button3;
                 axis1X = "Horizontal2";
                 axis1Y = "Vertical2";
                 axis2X = "Horizontal2-r";
@@ -99,10 +119,10 @@ public class Player : Character {
             case 3:
                 leftTrigger = "Fire3";
                 rightTrigger = "Fire3-r";
-                aButton = KeyCode.Joystick1Button0;
-                bButton = KeyCode.Joystick1Button1;
-                xButton = KeyCode.Joystick1Button2;
-                yButton = KeyCode.Joystick1Button3;
+                aButton = KeyCode.Joystick3Button0;
+                bButton = KeyCode.Joystick3Button1;
+                xButton = KeyCode.Joystick3Button2;
+                yButton = KeyCode.Joystick3Button3;
                 axis1X = "Horizontal3";
                 axis1Y = "Vertical3";
                 axis2X = "Horizontal3-r";
@@ -111,10 +131,10 @@ public class Player : Character {
             case 4:
                 leftTrigger = "Fire4";
                 rightTrigger = "Fire4-r";
-                aButton = KeyCode.Joystick1Button0;
-                bButton = KeyCode.Joystick1Button1;
-                xButton = KeyCode.Joystick1Button2;
-                yButton = KeyCode.Joystick1Button3;
+                aButton = KeyCode.Joystick4Button0;
+                bButton = KeyCode.Joystick4Button1;
+                xButton = KeyCode.Joystick4Button2;
+                yButton = KeyCode.Joystick4Button3;
                 axis1X = "Horizontal4";
                 axis1Y = "Vertical4";
                 axis2X = "Horizontal4-r";
