@@ -1,4 +1,4 @@
-MovieJam/Library/
+
 MovieJam/Temp/
 MovieJam/Obj/
 MovieJam/Build/
@@ -40,3 +40,5 @@ MovieJam/Assets/Scenes/Noa/NavMesh\.asset~master\.meta
 MovieJam/Assets/Scripts/Actor/Enemy\.cs\.meta~HEAD\.meta
 
 MovieJam/Assets/Scripts/Actor/Enemy\.cs\.meta~master\.meta
+
+MovieJam/Library/
