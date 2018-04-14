@@ -21,7 +21,7 @@ public class Player : Character {
 		movementVec.x = Input.GetAxis("Horizontal");
 		movementVec.z = Input.GetAxis("Vertical");
 
-		print (aiAgent.transform.position + movementVec);
+		//print (aiAgent.transform.position + movementVec);
 
 		aiAgent.destination = aiAgent.transform.position + movementVec;
 	}

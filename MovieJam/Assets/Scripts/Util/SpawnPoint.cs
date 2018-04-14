@@ -7,7 +7,7 @@ public class SpawnPoint : MonoBehaviour {
 	public bool isSpawnAvaible()
 	{
 		RaycastHit[] hits;
-		hits = Physics.SphereCastAll (transform.position, 5f, Vector3.up);
+		hits = Physics.SphereCastAll (transform.position, 2f, Vector3.up);
 
 		foreach (RaycastHit hit in hits) 
 		{

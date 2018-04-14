@@ -9,14 +9,16 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject playerGO;
 
-	private int actualWave;
+	private int actualWave = 0;
 
     public Player[] players = new Player[4];
 
 	[SerializeField]
-	private List<Wave> waves;
+	private Wave[] waves;
 
 	private int monsterSpawnedInThisWave = 0;
+
+	private bool gameStarted = false;
 
     private void Awake()
     {
@@ -36,9 +38,19 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && players[0] == null)
         {
             players[0] = Instantiate(playerGO, this.transform.position, this.transform.rotation).GetComponentInChildren<Player>();
+			playerSpawned ();
         }
         
     }
+
+	private void playerSpawned()
+	{
+		if (!gameStarted) 
+		{
+			gameStarted = true;
+			nextWave ();
+		}
+	}
 
 	public void enemyIsDead()
 	{
@@ -47,13 +59,13 @@ public class GameManager : MonoBehaviour {
 
 	public void nextWave()
 	{
-		actualWave++;
 
-		if (actualWave < waves.Count) 
+		if (actualWave < waves.Length) 
 		{
-			StartCoroutine (spawnWave ());
+			StartCoroutine (spawnWave (waves[actualWave]));
 		} else
 			Debug.Log ("No more waves");
+
 	}
 
 	/// <summary>
@@ -61,20 +73,29 @@ public class GameManager : MonoBehaviour {
 	/// </summary>
 	/// <returns></returns>
 	/// <param name="cooldownSpawn">Cooldown spawn.</param>
-	IEnumerator spawnWave()
+	IEnumerator spawnWave(Wave wave)
 	{
 		SpawnPoint sp = null;
-		while (waves[actualWave].monsterCount != monsterSpawnedInThisWave) 
-		{
-			sp = waves [actualWave].getAvaibleSpawnPoint ();
-			if (sp) 
-			{
-				Instantiate(waves[actualWave].enemiesToSpawn[Random.Range(0, waves[actualWave].enemiesToSpawn.Count - 1)]);
-			}
 
-			yield return new WaitForSeconds(waves[actualWave].cooldownSpawn);
+		while (wave.monsterCount != monsterSpawnedInThisWave) 
+		{
+			sp = wave.getAvaibleSpawnPoint ();
+			if (sp)
+			{
+				Instantiate (wave.enemiesToSpawn [Random.Range (0, wave.enemiesToSpawn.Count)]);
+				monsterSpawnedInThisWave++;
+				yield return new WaitForSeconds(wave.cooldownSpawn);
+			} else
+				print ("rien trouver");
+
+			yield return new WaitForSeconds(1f);
+
 		}
 			
+		actualWave++;
+
+		nextWave ();
+
 		yield return null;
 	}
 		

@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wave : MonoBehaviour {
+[System.Serializable]
+public class Wave  {
 
-	public uint waveNumber;
+	[SerializeField]
 	public List<SpawnPoint> spawnPoints;
 
+	[SerializeField]
 	public List<Enemy> enemiesToSpawn;
+	[SerializeField]
+	public int monsterCount;
 
-	public uint monsterCount;
-
+	[SerializeField]
 	public float cooldownSpawn;
 
 	//ajouter une liste de monstres ?
@@ -22,7 +25,7 @@ public class Wave : MonoBehaviour {
 			GameManager.Instance.nextWave ();
 	}
 
-	public uint getMonsterRemaining()
+	public int getMonsterRemaining()
 	{
 		return monsterCount;
 	}
