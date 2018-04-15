@@ -24,23 +24,27 @@ public class Dasher : Character
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(GameManager.Instance.players[0].transform.position, aiDasher.transform.position);
-        if (distance <= 10 && !idle)
+        if (GameManager.Instance.players[0] != null)
         {
-            StartCoroutine(MaCoroutineDash());
+            distance = Vector3.Distance(GameManager.Instance.players[0].transform.position, aiDasher.transform.position);
+            if (distance <= 10 && !idle)
+            {
+                StartCoroutine(MaCoroutineDash());
+
+            }
+            if (!idle)
+            {
+                PlayerPosition = GameManager.Instance.players[0].transform.position;
+                //Debug.Log(GameManager.Instance.players[0].transform.position);
+
+            }
+            else
+            {
+                PlayerPosition = aiDasher.transform.position;
+            }
+            aiDasher.destination = PlayerPosition;
 
         }
-        if (!idle)
-        {
-            PlayerPosition = GameManager.Instance.players[0].transform.position;
-            //Debug.Log(GameManager.Instance.players[0].transform.position);
-
-        }
-        else
-        {
-            PlayerPosition = aiDasher.transform.position;
-        }
-        aiDasher.destination = PlayerPosition;
     }
 
     IEnumerator MaCoroutineDash()

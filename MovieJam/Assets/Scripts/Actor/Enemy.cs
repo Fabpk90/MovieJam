@@ -24,17 +24,20 @@ public class Enemy : Character
     // Update is called once per frame
     void Update()
     {
-        if (!idle)
+        if (GameManager.Instance.players[0] != null)
         {
-            PlayerPosition = GameManager.Instance.players[0].transform.position;
-            //Debug.Log(GameManager.Instance.players[0].transform.position);
+            if (!idle)
+            {
+                PlayerPosition = GameManager.Instance.players[0].transform.position;
+                //Debug.Log(GameManager.Instance.players[0].transform.position);
 
+            }
+            else
+            {
+                PlayerPosition = aiEnemy.transform.position;
+            }
+            aiEnemy.destination = PlayerPosition;
         }
-        else
-        {
-            PlayerPosition = aiEnemy.transform.position;
-        }
-        aiEnemy.destination = PlayerPosition;
     }
 
     IEnumerator MaCoroutine()

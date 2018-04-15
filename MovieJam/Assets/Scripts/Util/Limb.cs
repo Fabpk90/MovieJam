@@ -33,10 +33,16 @@ public class Limb : MonoBehaviour {
 		//should spawn a copy or itself somewhere in the map
 	}
 
-    public void dropped(Vector3 position, Quaternion rotation)
+    public void dropped()
     {
         transform.SetParent(null);
         
+    }
+
+    public void dropped(Vector3 position, Quaternion rotation)
+    {
+        transform.SetParent(null);
+
     }
 
 
