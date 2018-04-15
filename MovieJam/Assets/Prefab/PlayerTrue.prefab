@@ -718,7 +718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1230299379238390
 GameObject:
   m_ObjectHideFlags: 1
@@ -4964,10 +4964,10 @@ MonoBehaviour:
   damage: 1
   typeAtt: 0
   bullet: {fileID: 1295130415161020, guid: 233b3f97591053a468d9abcbfb04136a, type: 2}
-  gunPoint: {fileID: 4897241156931364}
+  gunPoint: {fileID: 4169293852588926}
   cooldownFire: 2
   cooldownDash: 0
-  charClippedOn: {fileID: 0}
+  charClippedOn: {fileID: 114939851928549394}
 --- !u!114 &114939851928549394
 MonoBehaviour:
   m_ObjectHideFlags: 1
