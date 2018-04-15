@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LimbClipped : MonoBehaviour {
+public class LimbClipped : Limb {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    LimbDropped dropped;
+    public AttackingLimb attack;
+
+    public LimbDropped drop()
+    {
+        return dropped;
+
+    }
+
 }

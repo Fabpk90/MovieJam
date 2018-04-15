@@ -12,26 +12,29 @@ public class Player : Character {
 	private int movementSpeed = 8;
 
     //Unput :
-    public string leftTrigger;
-    public string rightTrigger;
-    public KeyCode aButton;
-    public KeyCode bButton;
-    public KeyCode xButton;
-    public KeyCode yButton;
-    public KeyCode rButton;
-    public string axis1X;
-    public string axis2X;
-    public string axis1Y;
-    public string axis2Y;
-    public bool mouseFollow = false;
+     string leftTrigger;
+     string rightTrigger;
+     KeyCode aButton;
+     KeyCode bButton;
+     KeyCode xButton;
+     KeyCode yButton;
+     KeyCode rButton;
+     string axis1X;
+     string axis2X;
+     string axis1Y;
+     string axis2Y;
+     bool mouseFollow = false;
     
 
     private Vector3 movementVec;
     public float bulletSpeed = 2;
 
+    public bool invincible = true;
+    public float delayBetweenHit = 1f;
+
     private void OnCollisionEnter(Collision collision)
     {
-        Limb limb = collision.gameObject.GetComponent<Limb>();
+        LimbDropped limb = collision.gameObject.GetComponent<LimbDropped>();
         if (limb != null ){
             print("Limb ! " + limb.name );
             TryAddLimb(limb);
@@ -83,37 +86,34 @@ public class Player : Character {
         {
             print("Trigger Right");
         }
-
-        if (Input.GetKeyDown(rButton))
-        {
-            print("R");
-
-        }
-
+        
         if (Input.GetKeyDown(aButton))
         {
-            print("A");
+            print("Shoot");
             if (listLimb[0] != null)
             {
                 Vector3 direction = lookDirection();
-                listLimb[0].GetComponent<AttackingLimb>().attack( direction, bulletSpeed, true); 
+                listLimb[0].attack.attack( direction, bulletSpeed, true); 
             }
-        }/*
+        }
         if (Input.GetKeyDown(bButton))
         {
-            print("b");
+            print("Chi");
+            listLimb[0].attack.chi();
+
 
         }
         if (Input.GetKeyDown(xButton))
         {
-            print("X");
+            print("Dash");
+            listLimb[0].attack.dash();
 
         }
         if (Input.GetKeyDown(yButton))
         {
             print("Y");
 
-        }*/
+        }
 
 
     }
@@ -233,7 +233,7 @@ public class Player : Character {
                 {
                     if(rand == 0)
                     {
-                        listLimb[i].dropped(/*position dans tableau*/transform.position,Quaternion.identity);
+                        listLimb[i].drop();
                         listLimb[i] = null;
                     }
                 }
@@ -241,12 +241,12 @@ public class Player : Character {
         }
     }
 
-    public void TryAddLimb(Limb limb)
+    public void TryAddLimb(LimbDropped limb)
     {
         int indexOfEnum = (int)limb.partPlace;
         if (listLimb[indexOfEnum] == null)
         {
-            listLimb[indexOfEnum] = limb;
+            listLimb[indexOfEnum] = limb.clip();
         }
     }
 }

@@ -26,24 +26,4 @@ public class Limb : MonoBehaviour {
 	{
 		return animator;
 	}
-
-	public void playDeathAnimation()
-	{
-		//plays the animation of the limb and then destry itself
-		//should spawn a copy or itself somewhere in the map
-	}
-
-    public void dropped()
-    {
-        transform.SetParent(null);
-        
-    }
-
-    public void dropped(Vector3 position, Quaternion rotation)
-    {
-        transform.SetParent(null);
-
-    }
-
-
 }

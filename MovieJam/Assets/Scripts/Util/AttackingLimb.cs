@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackingLimb : Limb {
+public class AttackingLimb : MonoBehaviour {
 
 	[SerializeField]
 	private float range;
@@ -37,11 +37,11 @@ public class AttackingLimb : Limb {
         yield return new WaitForSeconds(cooldown);
         canShot = true;
     }
-    void chi()
+    public void chi()
     {
 
     }
-    void dash()
+    public void dash()
     {
 
     }
