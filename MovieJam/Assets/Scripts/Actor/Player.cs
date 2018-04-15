@@ -24,7 +24,9 @@ public class Player : Character {
      string axis1Y;
      string axis2Y;
      bool mouseFollow = false;
-    
+
+    Vector3 direction = Vector3.zero;
+    Vector3 angle = Vector3.zero;
 
     private Vector3 movementVec;
     public float bulletSpeed = 2;
@@ -63,14 +65,19 @@ public class Player : Character {
         {
             aiAgent.speed = movementSpeed / 2;
         }
-        
 
+        changeAllAnimatorBool("Walk", movementVec != Vector3.zero);
 
         aiAgent.destination = aiAgent.transform.position + movementVec;
 
+        angle = lookDirection();
+        Quaternion rot = this.transform.GetChild(0).rotation;
+        rot.eulerAngles = direction;
+        this.transform.GetChild(0).rotation = rot;
+            
 
         //Use members
-        if(Input.GetKey(rButton) && Input.GetAxisRaw(leftTrigger) != 0) {
+        if (Input.GetKey(rButton) && Input.GetAxisRaw(leftTrigger) != 0) {
             print("Drop a left hand !");
         }
         else if (Input.GetAxis(leftTrigger) != 0)
@@ -92,7 +99,6 @@ public class Player : Character {
             print("Shoot");
             if (listLimb[0] != null)
             {
-                Vector3 direction = lookDirection();
                 listLimb[0].attack.attack( direction, bulletSpeed, true); 
             }
         }
@@ -118,19 +124,39 @@ public class Player : Character {
 
     }
 
+    public List<Animator> animators = new List<Animator>();
+
+    public void changeAllAnimatorBool(string s, bool b)
+    {
+        foreach(Animator ani in animators)
+        {
+            ani.SetBool(s, b);
+        }
+    }
+
     public Vector3 lookDirection()
     {
         Vector3 res = Vector3.zero;
         if (mouseFollow)
         {
-            res = Input.mousePosition;
+            Vector3 direction = Input.mousePosition;
+            direction.z = this.transform.position.z;
+            direction = Camera.main.ScreenToWorldPoint(direction);
+            print("direction = "+direction);
         }
         else
         {
-            res.x = Input.GetAxis(axis1X);
-            res.z = Input.GetAxis(axis1Y);
+            direction.x = Input.GetAxis(axis2X);
+            direction.z = Input.GetAxis(axis2Y);
         }
-
+        if(res == Vector3.zero)
+        {
+            res = angle;
+        }
+        else
+        {
+            res = Vector3.up * Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
+        }
         return res;
     }
 
