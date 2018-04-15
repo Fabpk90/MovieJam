@@ -7,11 +7,12 @@ public class LimbClipped : Limb {
     LimbDropped dropped;
     public bool myTurn = true;
     public AttackingLimb attack;
-    public Character father;
+    public Character charClippedOn;
 
     public void Awake()
     {
         dropped = GetComponent<LimbDropped>();
+        attack.charClippedOn = charClippedOn;
     }
 
     public LimbDropped drop()
@@ -21,6 +22,7 @@ public class LimbClipped : Limb {
         dropped.rigidBody.constraints = RigidbodyConstraints.None;
         dropped.boxCollider.isTrigger = false;
         this.transform.SetParent(null);
+        charClippedOn = null;
         return dropped;
 
     }
