@@ -7,6 +7,7 @@ public class LimbClipped : Limb {
     LimbDropped dropped;
     public bool myTurn = true;
     public AttackingLimb attack;
+    public Character father;
 
     public void Awake()
     {

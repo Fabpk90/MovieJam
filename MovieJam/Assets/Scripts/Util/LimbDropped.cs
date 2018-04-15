@@ -18,6 +18,7 @@ public class LimbDropped : Limb {
 
     public LimbClipped clip(Character parent)
     {
+        clipped.father = parent;
         rigidBody.constraints = RigidbodyConstraints.FreezeAll;
         boxCollider.isTrigger = true;
          myTurn = false;
