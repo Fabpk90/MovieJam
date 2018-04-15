@@ -54,11 +54,11 @@ public class Player : Character {
         //Here, lower the speed in function of your limbs
         if(listLimb[2] == null && listLimb[3] != null || listLimb[2] != null && listLimb[3] == null)
         {
-            aiAgent.speed = (aiAgent.speed *80/100);
+            aiAgent.speed = (movementSpeed * 80/100);
         }
         else if(listLimb[2] == null && listLimb[3] == null)
         {
-            aiAgent.speed = aiAgent.speed/2;
+            aiAgent.speed = movementSpeed / 2;
         }
         
 
