@@ -1166,7 +1166,8 @@ MonoBehaviour:
   partPlace: 1
   animator: {fileID: 0}
   myTurn: 0
-  attack: {fileID: 0}
+  attack: {fileID: 114849750666167828}
+  charClippedOn: {fileID: 0}
 --- !u!114 &114849750666167828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1184,6 +1185,7 @@ MonoBehaviour:
   bullet: {fileID: 1295130415161020, guid: 233b3f97591053a468d9abcbfb04136a, type: 2}
   gunPoint: {fileID: 4529959181420668}
   cooldown: 0.5
+  charClippedOn: {fileID: 0}
 --- !u!137 &137281704645772624
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
