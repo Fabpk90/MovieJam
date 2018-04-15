@@ -83,7 +83,11 @@ public class Player : Character {
         }
         else if (Input.GetAxis(leftTrigger) != 0)
         {
-            print("Trigger Left");
+			print("Shoot");
+			if (listLimb[0] != null)
+			{
+				listLimb[0].attack.attack( direction, bulletSpeed, true); 
+			}
         }
 //        print(Input.GetAxis(leftTrigger) + "Fire = "+leftTrigger);
         if (Input.GetKey(rButton) && Input.GetAxisRaw(rightTrigger) != 0)
@@ -92,7 +96,13 @@ public class Player : Character {
         }
         else if (Input.GetAxisRaw(rightTrigger) != 0)
         {
-            print("Trigger Right");
+			print("Dash");
+
+			if (listLimb[1] != null)
+			{
+				listLimb[1].attack.dash();
+			}
+
         }
         
         if (Input.GetKeyDown(aButton))
