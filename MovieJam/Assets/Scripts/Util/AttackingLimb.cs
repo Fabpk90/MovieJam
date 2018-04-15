@@ -10,6 +10,20 @@ public class AttackingLimb : MonoBehaviour {
 	[SerializeField]
 	private float damage;
 
+
+	private Character charClippedOn;
+	private float yCorrection;
+
+	void Awake()
+	{
+		//print (transform.parent.position);
+		charClippedOn = GetComponentInParent<Character> ();
+		print (charClippedOn.transform.position);
+		yCorrection = charClippedOn.transform.position.y;
+		print (yCorrection);
+	}
+
+
 	public void playAnimation()
 	{
 
@@ -43,7 +57,21 @@ public class AttackingLimb : MonoBehaviour {
     }
     public void dash()
     {
-
+		charClippedOn.Dash(range * charClippedOn.transform.forward);
     }
 
+
+	IEnumerator Cdash(Vector3 destination)
+	{
+		while(Vector3.Distance(charClippedOn.transform.position, destination) > 1f)
+		{
+			//print (Vector3.MoveTowards (charClippedOn.transform.position, destination, 1f));
+			charClippedOn.transform.position =  Vector3.MoveTowards (charClippedOn.transform.position, destination, 1f);
+			yield return new WaitForEndOfFrame();
+		}
+
+		charClippedOn.dashCollider.SetActive (false);
+
+		yield return null;
+	}
 }
