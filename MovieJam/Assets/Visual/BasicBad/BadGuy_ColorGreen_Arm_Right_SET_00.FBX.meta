@@ -1,0 +1,169 @@
+fileFormatVersion: 2
+guid: b50622f3af9ddf747b449d3c308c7bda
+timeCreated: 1523779386
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bad_Arm_Right_msh
+    100002: Bad_ForeArm_Right_msh
+    100004: Bad_Hand_Right_msh
+    100006: Bad_master
+    100008: Bad_Mesh
+    100010: Bad_Reference
+    100012: Bad_RightArm
+    100014: Bad_RightArmRoll
+    100016: Bad_RightFingerBase
+    100018: Bad_RightForeArm
+    100020: Bad_RightForeArmRoll
+    100022: Bad_RightHand
+    100024: Bad_RightHandIndex0
+    100026: Bad_RightHandIndex1
+    100028: Bad_RightHandIndex2
+    100030: Bad_RightHandIndex3
+    100032: Bad_RightHandIndex4
+    100034: Bad_RightHandMiddle1
+    100036: Bad_RightHandMiddle2
+    100038: Bad_RightHandMiddle3
+    100040: Bad_RightHandMiddle4
+    100042: Bad_RightHandPinky0
+    100044: Bad_RightHandPinky1
+    100046: Bad_RightHandPinky2
+    100048: Bad_RightHandPinky3
+    100050: Bad_RightHandPinky4
+    100052: Bad_RightHandRing1
+    100054: Bad_RightHandRing2
+    100056: Bad_RightHandRing3
+    100058: Bad_RightHandRing4
+    100060: Bad_RightHandThumb1
+    100062: Bad_RightHandThumb2
+    100064: Bad_RightHandThumb3
+    100066: Bad_RightHandThumb4
+    100068: Bad_RightShoulder
+    100070: //RootNode
+    400000: Bad_Arm_Right_msh
+    400002: Bad_ForeArm_Right_msh
+    400004: Bad_Hand_Right_msh
+    400006: Bad_master
+    400008: Bad_Mesh
+    400010: Bad_Reference
+    400012: Bad_RightArm
+    400014: Bad_RightArmRoll
+    400016: Bad_RightFingerBase
+    400018: Bad_RightForeArm
+    400020: Bad_RightForeArmRoll
+    400022: Bad_RightHand
+    400024: Bad_RightHandIndex0
+    400026: Bad_RightHandIndex1
+    400028: Bad_RightHandIndex2
+    400030: Bad_RightHandIndex3
+    400032: Bad_RightHandIndex4
+    400034: Bad_RightHandMiddle1
+    400036: Bad_RightHandMiddle2
+    400038: Bad_RightHandMiddle3
+    400040: Bad_RightHandMiddle4
+    400042: Bad_RightHandPinky0
+    400044: Bad_RightHandPinky1
+    400046: Bad_RightHandPinky2
+    400048: Bad_RightHandPinky3
+    400050: Bad_RightHandPinky4
+    400052: Bad_RightHandRing1
+    400054: Bad_RightHandRing2
+    400056: Bad_RightHandRing3
+    400058: Bad_RightHandRing4
+    400060: Bad_RightHandThumb1
+    400062: Bad_RightHandThumb2
+    400064: Bad_RightHandThumb3
+    400066: Bad_RightHandThumb4
+    400068: Bad_RightShoulder
+    400070: //RootNode
+    2100000: 01 - Default
+    2100002: 03 - Default
+    4300000: Bad_Arm_Right_msh
+    4300002: Bad_Hand_Right_msh
+    4300004: Bad_ForeArm_Right_msh
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Bad_Arm_Right_msh
+    13700002: Bad_ForeArm_Right_msh
+    13700004: Bad_Hand_Right_msh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

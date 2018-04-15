@@ -10,7 +10,7 @@ public class Limb : MonoBehaviour {
         RARM,
         LLEG,
         RLEG,
-        HEAD = 0,
+        HEAD = 5,
 		TORSO
 		
 	}

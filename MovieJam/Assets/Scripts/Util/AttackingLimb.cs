@@ -10,6 +10,15 @@ public class AttackingLimb : MonoBehaviour {
 	[SerializeField]
 	private float damage;
 
+    public enum typeAttack
+    {
+        shoot,
+        chi,
+        dash,
+    }
+
+    public typeAttack typeAtt = typeAttack.shoot;
+
 	public void playAnimation()
 	{
 
@@ -17,8 +26,20 @@ public class AttackingLimb : MonoBehaviour {
 
     public void attack(Vector3 direction, float bulletSpeed, bool ally)
     {
-       StartCoroutine( shot(direction, bulletSpeed, ally));
-        //tir // shot // chi
+        switch (typeAtt)
+        {
+            case typeAttack.shoot:
+                if(canShot)
+                    StartCoroutine(shot(direction, bulletSpeed, ally));
+                //tir // shot // chi
+                break;
+            case typeAttack.chi:
+                chi();
+                break;
+            case typeAttack.dash:
+                dash();
+                break;
+        }
 
     }
 

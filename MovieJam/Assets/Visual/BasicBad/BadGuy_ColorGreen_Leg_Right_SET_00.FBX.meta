@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 50fd02cf38845844ab570aec9e273db3
+timeCreated: 1523779381
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bad_Ankle_Right_msh
+    100002: Bad_Feet_Right_msh
+    100004: Bad_Knee_Right_msh
+    100006: Bad_Leg_Right_msh
+    100008: Bad_master
+    100010: Bad_Mesh
+    100012: Bad_Reference
+    100014: Bad_RightFoot
+    100016: Bad_RightFootExtraFinger1
+    100018: Bad_RightFootExtraFinger2
+    100020: Bad_RightFootExtraFinger3
+    100022: Bad_RightFootIndex1
+    100024: Bad_RightFootIndex2
+    100026: Bad_RightFootIndex3
+    100028: Bad_RightFootMiddle1
+    100030: Bad_RightFootMiddle2
+    100032: Bad_RightFootMiddle3
+    100034: Bad_RightFootPinky1
+    100036: Bad_RightFootPinky2
+    100038: Bad_RightFootPinky3
+    100040: Bad_RightFootRing1
+    100042: Bad_RightFootRing2
+    100044: Bad_RightFootRing3
+    100046: Bad_RightLeg
+    100048: Bad_RightLegRoll
+    100050: Bad_RightToeBase
+    100052: Bad_RightUpLeg
+    100054: Bad_RightUpLegRoll
+    100056: Bad_UpLeg_Right_msh
+    100058: //RootNode
+    400000: Bad_Ankle_Right_msh
+    400002: Bad_Feet_Right_msh
+    400004: Bad_Knee_Right_msh
+    400006: Bad_Leg_Right_msh
+    400008: Bad_master
+    400010: Bad_Mesh
+    400012: Bad_Reference
+    400014: Bad_RightFoot
+    400016: Bad_RightFootExtraFinger1
+    400018: Bad_RightFootExtraFinger2
+    400020: Bad_RightFootExtraFinger3
+    400022: Bad_RightFootIndex1
+    400024: Bad_RightFootIndex2
+    400026: Bad_RightFootIndex3
+    400028: Bad_RightFootMiddle1
+    400030: Bad_RightFootMiddle2
+    400032: Bad_RightFootMiddle3
+    400034: Bad_RightFootPinky1
+    400036: Bad_RightFootPinky2
+    400038: Bad_RightFootPinky3
+    400040: Bad_RightFootRing1
+    400042: Bad_RightFootRing2
+    400044: Bad_RightFootRing3
+    400046: Bad_RightLeg
+    400048: Bad_RightLegRoll
+    400050: Bad_RightToeBase
+    400052: Bad_RightUpLeg
+    400054: Bad_RightUpLegRoll
+    400056: Bad_UpLeg_Right_msh
+    400058: //RootNode
+    2100000: 01 - Default
+    2100002: 03 - Default
+    4300000: Bad_Feet_Right_msh
+    4300002: Bad_Ankle_Right_msh
+    4300004: Bad_Leg_Right_msh
+    4300006: Bad_Knee_Right_msh
+    4300008: Bad_UpLeg_Right_msh
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Bad_Ankle_Right_msh
+    13700002: Bad_Feet_Right_msh
+    13700004: Bad_Knee_Right_msh
+    13700006: Bad_Leg_Right_msh
+    13700008: Bad_UpLeg_Right_msh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

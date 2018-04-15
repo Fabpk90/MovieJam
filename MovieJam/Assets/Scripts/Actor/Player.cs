@@ -38,8 +38,8 @@ public class Player : Character {
     {
         LimbDropped limb = collision.gameObject.GetComponent<LimbDropped>();
         if (limb != null ){
-            print("Limb ! " + limb.name );
-            TryAddLimb(limb);
+            if(limb.myTurn)
+                TryAddLimb(limb);
         }
     }
 
@@ -72,7 +72,7 @@ public class Player : Character {
 
         angle = lookDirection();
         Quaternion rot = this.transform.GetChild(0).rotation;
-        rot.eulerAngles = direction;
+        rot.eulerAngles = angle;
         this.transform.GetChild(0).rotation = rot;
             
 
@@ -139,17 +139,22 @@ public class Player : Character {
         Vector3 res = Vector3.zero;
         if (mouseFollow)
         {
-            Vector3 direction = Input.mousePosition;
-            direction.z = this.transform.position.z;
-            direction = Camera.main.ScreenToWorldPoint(direction);
-            print("direction = "+direction);
+            Vector3 mousePoint = Input.mousePosition;
+            mousePoint.z = GameManager.Instance.mainCamera.transform.position.y- this.transform.position.y;
+            print("direction here = " + direction);
+            Vector3 mouseWorldPos = GameManager.Instance.mainCamera.ScreenToWorldPoint(mousePoint);
+            direction = mouseWorldPos - transform.position;
+            direction.y = 0;
+            direction.Normalize();
+            print("direction      = " + direction);
         }
         else
         {
             direction.x = Input.GetAxis(axis2X);
             direction.z = Input.GetAxis(axis2Y);
+            print("Joydirection = " + direction);
         }
-        if(res == Vector3.zero)
+        if(direction == Vector3.zero)
         {
             res = angle;
         }
@@ -272,7 +277,7 @@ public class Player : Character {
         int indexOfEnum = (int)limb.partPlace;
         if (listLimb[indexOfEnum] == null)
         {
-            listLimb[indexOfEnum] = limb.clip();
+            listLimb[indexOfEnum] = limb.clip(this);
         }
     }
 }

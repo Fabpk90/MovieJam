@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: b1794e3a1d4164d4092d6e490d59941d
+timeCreated: 1523779419
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Rouge_Arm_Left_msh
+    100004: Rouge_ForeArm_Left_msh
+    100006: Rouge_Hand_Left_msh
+    100008: Rouge_LeftArm
+    100010: Rouge_LeftArmRoll
+    100012: Rouge_LeftFingerBase
+    100014: Rouge_LeftForeArm
+    100016: Rouge_LeftForeArmRoll
+    100018: Rouge_LeftHand
+    100020: Rouge_LeftHandIndex0
+    100022: Rouge_LeftHandIndex1
+    100024: Rouge_LeftHandIndex2
+    100026: Rouge_LeftHandIndex3
+    100028: Rouge_LeftHandIndex4
+    100030: Rouge_LeftHandMiddle1
+    100032: Rouge_LeftHandMiddle2
+    100034: Rouge_LeftHandMiddle3
+    100036: Rouge_LeftHandMiddle4
+    100038: Rouge_LeftHandPinky0
+    100040: Rouge_LeftHandPinky1
+    100042: Rouge_LeftHandPinky2
+    100044: Rouge_LeftHandPinky3
+    100046: Rouge_LeftHandPinky4
+    100048: Rouge_LeftHandRing1
+    100050: Rouge_LeftHandRing2
+    100052: Rouge_LeftHandRing3
+    100054: Rouge_LeftHandRing4
+    100056: Rouge_LeftHandThumb1
+    100058: Rouge_LeftHandThumb2
+    100060: Rouge_LeftHandThumb3
+    100062: Rouge_LeftHandThumb4
+    100064: Rouge_LeftShoulder
+    100066: Rouge_master
+    100068: Rouge_Mesh
+    100070: Rouge_Reference
+    400000: //RootNode
+    400002: Rouge_Arm_Left_msh
+    400004: Rouge_ForeArm_Left_msh
+    400006: Rouge_Hand_Left_msh
+    400008: Rouge_LeftArm
+    400010: Rouge_LeftArmRoll
+    400012: Rouge_LeftFingerBase
+    400014: Rouge_LeftForeArm
+    400016: Rouge_LeftForeArmRoll
+    400018: Rouge_LeftHand
+    400020: Rouge_LeftHandIndex0
+    400022: Rouge_LeftHandIndex1
+    400024: Rouge_LeftHandIndex2
+    400026: Rouge_LeftHandIndex3
+    400028: Rouge_LeftHandIndex4
+    400030: Rouge_LeftHandMiddle1
+    400032: Rouge_LeftHandMiddle2
+    400034: Rouge_LeftHandMiddle3
+    400036: Rouge_LeftHandMiddle4
+    400038: Rouge_LeftHandPinky0
+    400040: Rouge_LeftHandPinky1
+    400042: Rouge_LeftHandPinky2
+    400044: Rouge_LeftHandPinky3
+    400046: Rouge_LeftHandPinky4
+    400048: Rouge_LeftHandRing1
+    400050: Rouge_LeftHandRing2
+    400052: Rouge_LeftHandRing3
+    400054: Rouge_LeftHandRing4
+    400056: Rouge_LeftHandThumb1
+    400058: Rouge_LeftHandThumb2
+    400060: Rouge_LeftHandThumb3
+    400062: Rouge_LeftHandThumb4
+    400064: Rouge_LeftShoulder
+    400066: Rouge_master
+    400068: Rouge_Mesh
+    400070: Rouge_Reference
+    2100000: 07 - Default
+    2100002: 14 - Default
+    2100004: 13 - Default
+    4300000: Rouge_Arm_Left_msh
+    4300002: Rouge_Hand_Left_msh
+    4300004: Rouge_ForeArm_Left_msh
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Rouge_Arm_Left_msh
+    13700002: Rouge_ForeArm_Left_msh
+    13700004: Rouge_Hand_Left_msh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
