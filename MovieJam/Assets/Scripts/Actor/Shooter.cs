@@ -29,6 +29,7 @@ public class Shooter : Character
     // Use this for initialization
     void Start()
     {
+		aiShooter = GetComponent<NavMeshAgent> ();
         ShooterMove = aiShooter.transform.position;
     }
 
@@ -97,10 +98,16 @@ public class Shooter : Character
 
     public override void Die()
     {
-        throw new System.NotImplementedException();
+        Destroy(this.gameObject);
     }
+
     public override void Hit()
     {
         life--;
+        if (life <= 0)
+        {
+            Die();
+        }
+
     }
 }

@@ -54,13 +54,19 @@ public class Enemy : Character
         }
     }
 
-	public override void Die ()
-	{
-		Debug.Log("enemy is dead");
-	}
+    public override void Die()
+    {
+        Destroy(this.gameObject);
+    }
+
     public override void Hit()
     {
         life--;
+        if (life <= 0)
+        {
+            Die();
+        }
+
     }
 
 }

@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1204244170519470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.37, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4671058467440488}
@@ -142,17 +142,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiAgent: {fileID: 195478104241500970}
+  movementSpeed: 8
   leftTrigger: 
   rightTrigger: 
   aButton: 0
   bButton: 0
   xButton: 0
   yButton: 0
+  rButton: 0
   axis1X: 
   axis2X: 
   axis1Y: 
   axis2Y: 
   mouseFollow: 0
+  bulletSpeed: 2
 --- !u!136 &136057506504717392
 CapsuleCollider:
   m_ObjectHideFlags: 1

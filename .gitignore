@@ -3,7 +3,7 @@ MovieJam/Temp/
 MovieJam/Obj/
 MovieJam/Build/
 MovieJam/Builds/
-MovieJam/fmod_editor.log
+MovieJam/fmod*.log
 MovieJam/Assets/AssetStoreTools*
 
 # Visual Studio cache directory

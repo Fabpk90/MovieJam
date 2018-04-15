@@ -8,6 +8,9 @@ public class Player : Character {
 	[SerializeField]
 	private NavMeshAgent aiAgent;
 
+	[SerializeField]
+	private int movementSpeed = 8;
+
     //Unput :
     public string leftTrigger;
     public string rightTrigger;
@@ -38,6 +41,8 @@ public class Player : Character {
     // Use this for initialization
     void Start () {
 		movementVec = new Vector3 ();
+
+		aiAgent.acceleration = movementSpeed;
 	}
 	
 	// Update is called once per frame
@@ -108,7 +113,7 @@ public class Player : Character {
         Vector3 res = Vector3.zero;
         if (mouseFollow)
         {
-            
+            res = Input.mousePosition;
         }
         else
         {
@@ -200,12 +205,12 @@ public class Player : Character {
 
     public override void Die()
     {
-        throw new System.NotImplementedException();
+        print("Die");
     }
     public override void Hit()
     {
         life--;
-        if(life == 0)
+        if(life <= 0)
         {
             Die();
         }

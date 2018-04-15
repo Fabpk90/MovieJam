@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject playerGO;
 
+	[SerializeField]
+	public List<GameObject> enemyType;
+
 	private int actualWave = 0;
 
     public Player[] players = new Player[4];
@@ -87,6 +90,14 @@ public class GameManager : MonoBehaviour {
         plInst.changeController(controller);
 
         players[numberOfPlayer] = plInst;
+
+		print ("lol");
+
+		if (!gameStarted) 
+		{
+			gameStarted = true;
+			spawnWave ();
+		}
     }
 
 	private void playerSpawned()
@@ -94,56 +105,33 @@ public class GameManager : MonoBehaviour {
 		if (!gameStarted) 
 		{
 			gameStarted = true;
-			nextWave ();
+			spawnWave ();
 		}
 	}
 
-	public void enemyIsDead()
+	public void spawnWave()
 	{
-		waves[actualWave].monsterIsDead ();
-	}
-
-	public void nextWave()
-	{
-
 		if (actualWave < waves.Length) 
 		{
-			StartCoroutine (spawnWave (waves[actualWave]));
+			foreach (Wave.WaveSpawner ws in waves[actualWave].spawners) 
+			{
+				for (int i = 0; i < ws.nbToSpawn; i++) 
+				{
+					Instantiate (enemyType [ws.typeToSpawn], ws.spawnPoint.transform.position, Quaternion.identity);
+				}
+			}
+
+			StartCoroutine(waitSecondsAndSpawnNextWave(waves[actualWave].cooldownWave));
 		} else
 			Debug.Log ("No more waves");
-
+		
 	}
 
-	/// <summary>
-	/// Spawns the wave. And waits for all enemies to be dead(in another coroutine)
-	/// </summary>
-	/// <returns></returns>
-	/// <param name="cooldownSpawn">Cooldown spawn.</param>
-	IEnumerator spawnWave(Wave wave)
+	IEnumerator waitSecondsAndSpawnNextWave(float seconds)
 	{
-		SpawnPoint sp = null;
-
-		while (wave.monsterCount != monsterSpawnedInThisWave) 
-		{
-			sp = wave.getAvaibleSpawnPoint ();
-			if (sp)
-			{
-				Instantiate (wave.enemiesToSpawn [Random.Range (0, wave.enemiesToSpawn.Count)]);
-				monsterSpawnedInThisWave++;
-				yield return new WaitForSeconds(wave.cooldownSpawn);
-			} else
-				print ("rien trouver");
-
-			yield return new WaitForSeconds(1f);
-
-		}
-			
+		yield return new WaitForSeconds (seconds);
 		actualWave++;
-
-		nextWave ();
-
+		spawnWave ();
 		yield return null;
 	}
-		
-
 }
