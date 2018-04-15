@@ -10,19 +10,14 @@ public class AttackingLimb : MonoBehaviour {
 	[SerializeField]
 	private float damage;
 
+    public enum typeAttack
+    {
+        shoot,
+        chi,
+        dash,
+    }
 
-	private Character charClippedOn;
-	private float yCorrection;
-
-	void Awake()
-	{
-		//print (transform.parent.position);
-		charClippedOn = GetComponentInParent<Character> ();
-		print (charClippedOn.transform.position);
-		yCorrection = charClippedOn.transform.position.y;
-		print (yCorrection);
-	}
-
+    public typeAttack typeAtt = typeAttack.shoot;
 
 	public void playAnimation()
 	{
@@ -31,8 +26,20 @@ public class AttackingLimb : MonoBehaviour {
 
     public void attack(Vector3 direction, float bulletSpeed, bool ally)
     {
-       StartCoroutine( shot(direction, bulletSpeed, ally));
-        //tir // shot // chi
+        switch (typeAtt)
+        {
+            case typeAttack.shoot:
+                if(canShot)
+                    StartCoroutine(shot(direction, bulletSpeed, ally));
+                //tir // shot // chi
+                break;
+            case typeAttack.chi:
+                chi();
+                break;
+            case typeAttack.dash:
+                dash();
+                break;
+        }
 
     }
 
