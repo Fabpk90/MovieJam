@@ -159,6 +159,13 @@ public class Player : Character {
             ani.SetBool(s, b);
         }
     }
+    public void changeAllAnimatorInt(string s, int b)
+    {
+        foreach (Animator ani in animators)
+        {
+            ani.SetInteger(s, b);
+        }
+    }
 
     public Vector3 lookDirection()
     {
