@@ -64,8 +64,15 @@ public class Player : Character {
         }
         else if(listLimb[2] == null && listLimb[3] == null)
         {
+            changeAllAnimatorInt("Leg", 0);
             aiAgent.speed = movementSpeed / 2;
         }
+        else
+        {
+
+            changeAllAnimatorInt("Leg", 2);
+        }
+
 
         changeAllAnimatorBool("Walk", movementVec != Vector3.zero);
 
@@ -86,8 +93,12 @@ public class Player : Character {
 			print("Shoot");
 			if (listLimb[0] != null)
 			{
-				listLimb[0].attack.attack( direction, bulletSpeed, true); 
-			}
+				listLimb[0].attack.attack( direction, bulletSpeed, true);
+                if(listLimb[0].attack.typeAtt == AttackingLimb.typeAttack.shoot)
+                listLimb[0].getAnimator().SetTrigger("LGun");
+                else
+                listLimb[0].getAnimator().SetTrigger("LSwo");
+            }
         }
 //        print(Input.GetAxis(leftTrigger) + "Fire = "+leftTrigger);
         if (Input.GetKey(rButton) && Input.GetAxisRaw(rightTrigger) != 0)
@@ -101,7 +112,11 @@ public class Player : Character {
 			if (listLimb[1] != null)
 			{
 				listLimb[1].attack.dash();
-			}
+                if (listLimb[0].attack.typeAtt == AttackingLimb.typeAttack.shoot)
+                    listLimb[0].getAnimator().SetTrigger("RGun");
+                else
+                    listLimb[0].getAnimator().SetTrigger("RSwo");
+            }
 
         }
         
