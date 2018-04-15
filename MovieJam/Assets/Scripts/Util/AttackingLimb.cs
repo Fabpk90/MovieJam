@@ -19,7 +19,16 @@ public class AttackingLimb : MonoBehaviour {
 
     public typeAttack typeAtt = typeAttack.shoot;
 
-	public void playAnimation()
+
+    bool canShot = true;
+    public GameObject bullet;
+    public Transform gunPoint;
+    public float cooldown;
+
+    public Character charClippedOn ; 
+
+
+    public void playAnimation()
 	{
 
 	}
@@ -43,10 +52,6 @@ public class AttackingLimb : MonoBehaviour {
 
     }
 
-    bool canShot = true;
-    public GameObject bullet;
-    public Transform gunPoint;
-    public float cooldown;
 
     IEnumerator shot(Vector3 direction,float bulletSpeed, bool ally )
     {
