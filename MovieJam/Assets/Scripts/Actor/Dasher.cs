@@ -75,12 +75,17 @@ public class Dasher : Character
 
     public override void Die()
     {
-        throw new System.NotImplementedException();
+        Destroy(this.gameObject);
     }
 
     public override void Hit()
     {
-        throw new System.NotImplementedException();
+        life--;
+        if (life <= 0)
+        {
+            Die();
+        }
+        
     }
 
 }

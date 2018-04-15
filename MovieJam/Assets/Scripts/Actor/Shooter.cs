@@ -98,10 +98,16 @@ public class Shooter : Character
 
     public override void Die()
     {
-        throw new System.NotImplementedException();
+        Destroy(this.gameObject);
     }
+
     public override void Hit()
     {
         life--;
+        if (life <= 0)
+        {
+            Die();
+        }
+
     }
 }

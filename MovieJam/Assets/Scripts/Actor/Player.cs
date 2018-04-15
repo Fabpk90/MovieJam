@@ -113,7 +113,7 @@ public class Player : Character {
         Vector3 res = Vector3.zero;
         if (mouseFollow)
         {
-            
+            res = Input.mousePosition;
         }
         else
         {
@@ -205,12 +205,12 @@ public class Player : Character {
 
     public override void Die()
     {
-        throw new System.NotImplementedException();
+        print("Die");
     }
     public override void Hit()
     {
         life--;
-        if(life == 0)
+        if(life <= 0)
         {
             Die();
         }
