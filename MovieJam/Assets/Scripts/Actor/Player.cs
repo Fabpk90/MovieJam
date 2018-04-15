@@ -24,6 +24,7 @@ public class Player : Character {
     public string axis1Y;
     public string axis2Y;
     public bool mouseFollow = false;
+    
 
     private Vector3 movementVec;
     public float bulletSpeed = 2;
@@ -51,6 +52,15 @@ public class Player : Character {
 		movementVec.z = Input.GetAxis(axis1Y);
 
         //Here, lower the speed in function of your limbs
+        if(listLimb[2] == null && listLimb[3] != null || listLimb[2] != null && listLimb[3] == null)
+        {
+            aiAgent.speed = (aiAgent.speed *80/100);
+        }
+        else if(listLimb[2] == null && listLimb[3] == null)
+        {
+            aiAgent.speed = aiAgent.speed/2;
+        }
+        
 
 
         aiAgent.destination = aiAgent.transform.position + movementVec;
