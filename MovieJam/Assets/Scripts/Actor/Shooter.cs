@@ -29,6 +29,7 @@ public class Shooter : Character
     // Use this for initialization
     void Start()
     {
+		ally = false;
 		aiShooter = GetComponent<NavMeshAgent> ();
         ShooterMove = aiShooter.transform.position;
     }

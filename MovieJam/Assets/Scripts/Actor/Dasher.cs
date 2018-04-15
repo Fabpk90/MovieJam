@@ -18,6 +18,7 @@ public class Dasher : Character
     // Use this for initialization
     void Start()
     {
+		ally = false;
         DasherMove = new Vector3();
     }
 

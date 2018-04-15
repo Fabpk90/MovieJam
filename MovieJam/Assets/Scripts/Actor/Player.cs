@@ -46,6 +46,7 @@ public class Player : Character {
 
     // Use this for initialization
     void Start () {
+		ally = true;
 		movementVec = new Vector3 ();
 
 		aiAgent.acceleration = movementSpeed;
