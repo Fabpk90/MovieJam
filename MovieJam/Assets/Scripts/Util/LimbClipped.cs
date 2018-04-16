@@ -12,7 +12,8 @@ public class LimbClipped : Limb {
     public void Awake()
     {
         dropped = GetComponent<LimbDropped>();
-        attack.charClippedOn = charClippedOn;
+        if(attack != null)
+            attack.charClippedOn = charClippedOn;
     }
 
     public LimbDropped drop()

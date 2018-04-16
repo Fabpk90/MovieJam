@@ -50,7 +50,14 @@ public class Player : Character {
 		movementVec = new Vector3 ();
 
 		aiAgent.acceleration = movementSpeed;
+
+        Invoke("EndInvincible", 2f);
 	}
+
+    void Invincible()
+    {
+        invincible = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -90,10 +97,10 @@ public class Player : Character {
         }
         else if (Input.GetAxis(leftTrigger) != 0)
         {
-			print("Shoot");
 			if (listLimb[0] != null)
-			{
-				listLimb[0].attack.attack( direction, bulletSpeed, true);
+            {
+                print("Shoot");
+                listLimb[0].attack.attack( direction, bulletSpeed, true);
                 if(listLimb[0].attack.typeAtt == AttackingLimb.typeAttack.shoot)
                 listLimb[0].getAnimator().SetTrigger("LGun");
                 else
@@ -107,27 +114,27 @@ public class Player : Character {
         }
         else if (Input.GetAxisRaw(rightTrigger) != 0)
         {
-			print("Dash");
 
 			if (listLimb[1] != null)
-			{
-				listLimb[1].attack.dash();
-                if (listLimb[0].attack.typeAtt == AttackingLimb.typeAttack.shoot)
-                    listLimb[0].getAnimator().SetTrigger("RGun");
+            {
+                print("Dash");
+                listLimb[1].attack.dash();
+                if (listLimb[1].attack.typeAtt == AttackingLimb.typeAttack.shoot)
+                    listLimb[1].getAnimator().SetTrigger("RGun");
                 else
-                    listLimb[0].getAnimator().SetTrigger("RSwo");
+                    listLimb[1].getAnimator().SetTrigger("RSwo");
             }
 
         }
         
-        if (Input.GetKeyDown(aButton))
+       /* if (Input.GetKeyDown(aButton))
         {
             print("Shoot");
             if (listLimb[0] != null)
             {
                 listLimb[0].attack.attack( direction, bulletSpeed, true); 
             }
-        }
+        }*/
         if (Input.GetKeyDown(bButton))
         {
             print("Chi");
@@ -277,32 +284,44 @@ public class Player : Character {
 
     }
 
+
+
     public override void Die()
     {
-        print("Die");
+        GameManager.Instance.HerosDie();
     }
     public override void Hit()
     {
+        print("Hit Player");
+        if (invincible)
+        {
+            return ;
+        }
+
         life--;
-        if(life <= 0)
+        if (life <= 0)
         {
             Die();
         }
-        else
+        invincible = true;
+        Invoke("EndInvicible", 0.5f);
+
+        int rand = Random.Range(0, (int)life);
+        for (int i = 0; i < 4; i++)
         {
-            int rand = Random.Range(0, (int)life);
-            for (int i = 0; i < 4; i++)
+            if (listLimb[i] != null)
             {
-                if (listLimb[i] != null)
+                if (rand == 0)
                 {
-                    if(rand == 0)
-                    {
-                        listLimb[i].drop();
-                        listLimb[i] = null;
-                    }
+                    print("Drop limb");
+                    listLimb[i].drop();
+                    listLimb[i] = null;
                 }
             }
         }
+
+
+
     }
 
     public void TryAddLimb(LimbDropped limb)
@@ -310,7 +329,12 @@ public class Player : Character {
         int indexOfEnum = (int)limb.partPlace;
         if (listLimb[indexOfEnum] == null)
         {
+            print("Limb clip");
             listLimb[indexOfEnum] = limb.clip(this);
+            if (life == 0)
+                GameManager.Instance.HerosRevive();
+            life++;
+
         }
     }
 }

@@ -112,7 +112,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -192,7 +192,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -272,7 +272,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -352,7 +352,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -389,8 +389,6 @@ MonoBehaviour:
   waves:
   - spawners: []
     cooldownWave: 0
-    totalEnemies: 0
-    enemyKilled: 0
 --- !u!114 &114966930401710902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -403,22 +401,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotSound:
-  - {fileID: 8300000, guid: eea60fa89eed22a42a7ae72222313d57, type: 3}
-  - {fileID: 8300000, guid: 763259497560e654b892bb85fa615465, type: 3}
-  - {fileID: 8300000, guid: 7ddf6bb48b5acd74fb9feb7c3cdedc24, type: 3}
-  - {fileID: 8300000, guid: 4bfe4f4055da52a46815d2b57c143314, type: 3}
-  - {fileID: 8300000, guid: 57c99c2d596bcf8409123978152df9d7, type: 3}
-  - {fileID: 8300000, guid: 7ae9ba42710166e4cb40efff69205555, type: 3}
-  - {fileID: 8300000, guid: 4e6a2b2ef8aef5449824f39568cbdfa7, type: 3}
-  - {fileID: 8300000, guid: 806ec1b3bea218b418fdafea2b56cfd8, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   shot: {fileID: 82165752468787104}
-  dashSound: {fileID: 8300000, guid: ee19288ab3d7ca24ba1a42165e008392, type: 3}
-  dash: {fileID: 82929032929261314}
-  clipSound: {fileID: 8300000, guid: 95136bdfe4b256f4aa5ede2656226aed, type: 3}
-  clip: {fileID: 82209552409884388}
-  hitSound:
-  - {fileID: 8300000, guid: 44e6ba831e443d4499c8160937ce38fa, type: 3}
-  - {fileID: 8300000, guid: f9f61e798ae32ed4dbe17b38fe10a4c1, type: 3}
-  - {fileID: 8300000, guid: 652b76c3596884446bf17637954fda21, type: 3}
-  - {fileID: 8300000, guid: 339cedfabab9b664793d39c80a5feff3, type: 3}
-  hit: {fileID: 82049973127899122}
+  hitPlayerSound: []
+  hitPlayer: {fileID: 0}
+  hitZombieSound: []
+  hitZombie: {fileID: 0}
+  deathSound: []
+  death: {fileID: 0}
+  switchSound: []
+  switchs: {fileID: 0}
+  emptySound: []
+  empty: []
+  zmoanSound: []

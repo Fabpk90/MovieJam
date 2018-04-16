@@ -10,10 +10,17 @@ public class LimbDropped : Limb {
     public Rigidbody rigidBody;
     public BoxCollider boxCollider;
 
+    public bool canBeTaken = false;
+
 
     public void Awake()
     {
         clipped = GetComponent<LimbClipped>();
+    }
+
+    public void takenAuth()
+    {
+        canBeTaken = true;
     }
 
     public LimbClipped clip(Character parent)
@@ -25,7 +32,18 @@ public class LimbDropped : Limb {
          myTurn = false;
         clipped.myTurn = true;
         this.transform.SetParent(parent.transform);
+
+        animator.SetTrigger("clip");
+
+        canBeTaken = false;
+        Invoke("takenAuth", 0.5f);
+
+        Vector3 forceV = Vector3.up * Random.Range(0, 28) + Vector3.forward * Random.Range(0, 28);
+        rigidBody.AddForce(forceV.normalized * forceF);
+
         return clipped;
 
     }
+
+    public float forceF = 25;
 }

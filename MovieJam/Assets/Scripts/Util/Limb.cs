@@ -19,7 +19,7 @@ public class Limb : MonoBehaviour {
 	public EBodyParts partPlace;
 
 	[SerializeField]
-	private Animator animator;
+	protected Animator animator;
 
 
 	public Animator getAnimator()

@@ -59,6 +59,7 @@ public class Enemy : Character
 
     public override void Die()
     {
+        print("Ennemi die");
         Destroy(this.gameObject);
     }
 

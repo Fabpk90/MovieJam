@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -25,7 +26,11 @@ public class GameManager : MonoBehaviour {
 
 	private int monsterSpawnedInThisWave = 0;
 
-	private bool gameStarted = false;
+    public Animator startImage;
+    public Animator gameOver;
+
+    private bool gameStarted = false;
+    public bool gameFinished = false;
 
     private void Awake()
     {
@@ -44,7 +49,11 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-
+        if (Input.anyKey)
+        {
+            if (reloadOk)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         /*
 
         if (Input.GetKeyDown(KeyCode.Space) && players[0] == null)
@@ -57,49 +66,53 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Space) && !controllerTaken.Contains(-1))
         {
             controllerTaken.Add(-1);
-            createNewPlayer(-1);
+            StartCoroutine(createNewPlayer(-1));
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) && !controllerTaken.Contains(1))
         {
             controllerTaken.Add(1);
-            createNewPlayer(1);
+            StartCoroutine(createNewPlayer(1));
         }
         if (Input.GetKeyDown(KeyCode.Joystick2Button0) && !controllerTaken.Contains(2))
         {
             controllerTaken.Add(2);
-            createNewPlayer(2);
+            StartCoroutine(createNewPlayer(2));
         }
         if (Input.GetKeyDown(KeyCode.Joystick3Button0) && !controllerTaken.Contains(3))
         {
             controllerTaken.Add(3);
-            createNewPlayer(3);
+            StartCoroutine(createNewPlayer(3));
         }
         if (Input.GetKeyDown(KeyCode.Joystick4Button0) && !controllerTaken.Contains(4))
         {
             controllerTaken.Add(4);
-            createNewPlayer(4);
+            StartCoroutine( createNewPlayer(4));
         }
 
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            print("Quit");
+            Application.Quit();
+        }
 
 
 
 
     }
 
-    public void createNewPlayer(int controller)
+    public IEnumerator createNewPlayer(int controller)
     {
+        startImage.SetTrigger("Start");
+        if (numberOfPlayer == 0)
+            yield return new WaitForSeconds(1f);
         Player plInst = Instantiate(playerGO, this.transform.position, this.transform.rotation).GetComponentInChildren<Player>();
         plInst.changeController(controller);
 
         players[numberOfPlayer] = plInst;
 
-		print ("lol");
-
-		if (!gameStarted) 
-		{
-			gameStarted = true;
-			spawnWave ();
-		}
+        Invoke("playerSpawned", 3);
     }
 
 	private void playerSpawned()
@@ -129,7 +142,34 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-	IEnumerator waitSecondsAndSpawnNextWave(float seconds)
+    public int herosDead = 0;
+
+    public void HerosDie()
+    {
+        herosDead++;
+        if(herosDead == controllerTaken.Count)
+        {
+            GameOver();
+        }
+    }
+    public void HerosRevive()
+    {
+        herosDead--;
+    }
+    public void GameOver()
+    {
+        gameOver.gameObject.SetActive(true);
+        Invoke("canReload",2);
+    }
+
+    public bool reloadOk = false;
+    public void canReload()
+    {
+        reloadOk = true;
+    }
+
+
+    IEnumerator waitSecondsAndSpawnNextWave(float seconds)
 	{
 		yield return new WaitForSeconds (seconds);
 		actualWave++;
