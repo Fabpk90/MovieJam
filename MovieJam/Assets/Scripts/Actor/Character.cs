@@ -8,13 +8,17 @@ abstract public class Character : MonoBehaviour {
 	protected float velocity;
     [SerializeField]
 	protected LimbClipped[] listLimb = new LimbClipped[4];
+    [SerializeField]
+    protected Transform[] joints = new Transform[4];
 
-	public GameObject dashCollider;
+    public GameObject dashCollider;
 
 	public bool ally;
 
 	abstract public void Die ();
     abstract public void Hit ();
+
+
 	public void Dash(Vector3 destination)
 	{
 		//mettre la coroutine du dash ici, l'attack limb appel ça à chaque fois

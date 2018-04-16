@@ -9,6 +9,11 @@ public class LimbClipped : Limb {
     public AttackingLimb attack;
     public Character charClippedOn;
 
+    [Header("Animation")]
+    public Transform myJoint;
+    public Transform hisJoint;
+
+
     public void Awake()
     {
         dropped = GetComponent<LimbDropped>();
@@ -24,8 +29,40 @@ public class LimbClipped : Limb {
         dropped.boxCollider.isTrigger = false;
         this.transform.SetParent(null);
         charClippedOn = null;
+
+        dropped.Launch();
+
+
         return dropped;
 
     }
+
+
+    #region IK
+
+    void LateUpdate()
+    {
+        if (!myTurn)
+            return;
+
+        if (myJoint == null || hisJoint == null)
+            return;
+        
+
+        CalculateIK();
+    }
+
+    void CalculateIK()
+    {
+        //calcul difference
+        Vector3 offset = myJoint.position - hisJoint.position;
+        //applique difference
+        this.transform.position -= offset;
+        /*if (myJoint.position == hisJoint.position)
+            print("Success !");*/
+    }
+
+    #endregion
+
 
 }

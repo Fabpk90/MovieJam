@@ -34,6 +34,19 @@ public class Player : Character {
     public bool invincible = true;
     public float delayBetweenHit = 1f;
 
+
+    public List<Animator> animators = new List<Animator>();
+
+
+    private void Awake()
+    {
+        for(int i = 0; i<4; i++)
+        {
+            if (listLimb[i] != null)
+                listLimb[i].hisJoint = joints[i];
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         LimbDropped limb = collision.gameObject.GetComponent<LimbDropped>();
@@ -99,7 +112,7 @@ public class Player : Character {
         {
 			if (listLimb[0] != null)
             {
-                print("Shoot");
+                print("Left");
                 listLimb[0].attack.attack( direction, bulletSpeed, true);
                 if(listLimb[0].attack.typeAtt == AttackingLimb.typeAttack.shoot)
                 listLimb[0].getAnimator().SetTrigger("LGun");
@@ -117,7 +130,7 @@ public class Player : Character {
 
 			if (listLimb[1] != null)
             {
-                print("Dash");
+                print("Right");
                 listLimb[1].attack.dash();
                 if (listLimb[1].attack.typeAtt == AttackingLimb.typeAttack.shoot)
                     listLimb[1].getAnimator().SetTrigger("RGun");
@@ -157,7 +170,6 @@ public class Player : Character {
 
     }
 
-    public List<Animator> animators = new List<Animator>();
 
     public void changeAllAnimatorBool(string s, bool b)
     {
@@ -192,7 +204,7 @@ public class Player : Character {
         {
             direction.x = Input.GetAxis(axis2X);
             direction.z = Input.GetAxis(axis2Y);
-            print("Joydirection = " + direction);
+            //print("Joydirection = " + direction);
         }
         if(direction == Vector3.zero)
         {
@@ -330,7 +342,7 @@ public class Player : Character {
         if (listLimb[indexOfEnum] == null)
         {
             print("Limb clip");
-            listLimb[indexOfEnum] = limb.clip(this);
+            listLimb[indexOfEnum] = limb.clip(this, joints[indexOfEnum]);
             if (life == 0)
                 GameManager.Instance.HerosRevive();
             life++;

@@ -13581,7 +13581,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -13596,7 +13596,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -13611,7 +13611,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -13626,7 +13626,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -13638,7 +13638,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544916523279714}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.3869514, y: 0.65847206, z: 0.79019356}
@@ -13650,7 +13650,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1339196492466302}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.6405487, y: 3.1723056, z: 0.9917431}
@@ -13662,7 +13662,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1351728660466474}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.4866905, y: 0.65847206, z: 0.79019356}
@@ -13674,7 +13674,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1312617918781870}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.6405487, y: 3.1723056, z: 0.9917431}
@@ -13810,6 +13810,8 @@ MonoBehaviour:
   myTurn: 1
   attack: {fileID: 0}
   charClippedOn: {fileID: 114939851928549394}
+  myJoint: {fileID: 4381022446455774}
+  hisJoint: {fileID: 0}
 --- !u!114 &114191213487777406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13824,8 +13826,8 @@ MonoBehaviour:
   partPlace: 3
   animator: {fileID: 95569148939251442}
   myTurn: 0
-  rigidBody: {fileID: 0}
-  boxCollider: {fileID: 0}
+  rigidBody: {fileID: 54394495048504558}
+  boxCollider: {fileID: 65799699523067940}
   canBeTaken: 0
   forceF: 25
 --- !u!114 &114283961006523462
@@ -13842,8 +13844,8 @@ MonoBehaviour:
   partPlace: 2
   animator: {fileID: 95116254730179120}
   myTurn: 0
-  rigidBody: {fileID: 0}
-  boxCollider: {fileID: 0}
+  rigidBody: {fileID: 54954743240116138}
+  boxCollider: {fileID: 65158844024185926}
   canBeTaken: 0
   forceF: 25
 --- !u!114 &114324389837291944
@@ -13862,6 +13864,8 @@ MonoBehaviour:
   myTurn: 1
   attack: {fileID: 0}
   charClippedOn: {fileID: 114939851928549394}
+  myJoint: {fileID: 4040780518099498}
+  hisJoint: {fileID: 0}
 --- !u!114 &114511718932534020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13876,8 +13880,8 @@ MonoBehaviour:
   partPlace: 1
   animator: {fileID: 95676384786292456}
   myTurn: 0
-  rigidBody: {fileID: 0}
-  boxCollider: {fileID: 0}
+  rigidBody: {fileID: 54855228677618618}
+  boxCollider: {fileID: 65239199773457890}
   canBeTaken: 0
   forceF: 25
 --- !u!114 &114559546465575730
@@ -13896,6 +13900,8 @@ MonoBehaviour:
   myTurn: 1
   attack: {fileID: 114114347717084818}
   charClippedOn: {fileID: 114939851928549394}
+  myJoint: {fileID: 4636989675355374}
+  hisJoint: {fileID: 0}
 --- !u!114 &114623074091191694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13912,6 +13918,8 @@ MonoBehaviour:
   myTurn: 1
   attack: {fileID: 114878063891450814}
   charClippedOn: {fileID: 114939851928549394}
+  myJoint: {fileID: 4374652406164578}
+  hisJoint: {fileID: 0}
 --- !u!114 &114688187644307428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13926,8 +13934,8 @@ MonoBehaviour:
   partPlace: 0
   animator: {fileID: 95882590263740748}
   myTurn: 0
-  rigidBody: {fileID: 0}
-  boxCollider: {fileID: 0}
+  rigidBody: {fileID: 54614077813160202}
+  boxCollider: {fileID: 65071803157555558}
   canBeTaken: 0
   forceF: 25
 --- !u!114 &114878063891450814
@@ -13964,6 +13972,11 @@ MonoBehaviour:
   - {fileID: 114623074091191694}
   - {fileID: 114115762209488408}
   - {fileID: 114324389837291944}
+  joints:
+  - {fileID: 4147903376657910}
+  - {fileID: 4523787499046780}
+  - {fileID: 4296783274466004}
+  - {fileID: 4798744571772926}
   dashCollider: {fileID: 1048282582609102}
   ally: 1
   aiAgent: {fileID: 195891845138037982}

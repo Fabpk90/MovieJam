@@ -23,10 +23,20 @@ public class LimbDropped : Limb {
         canBeTaken = true;
     }
 
-    public LimbClipped clip(Character parent)
+    public void Launch()
+    {
+        canBeTaken = false;
+        Invoke("takenAuth", 0.5f);
+
+        Vector3 forceV = Vector3.up * Random.Range(0, 28) + Vector3.forward * Random.Range(0, 28);
+        rigidBody.AddForce(forceV.normalized * forceF);
+    }
+
+    public LimbClipped clip(Character parent, Transform joint)
     {
         clipped.charClippedOn = parent;
         clipped.attack.charClippedOn = clipped.charClippedOn;
+        clipped.hisJoint = joint;
         rigidBody.constraints = RigidbodyConstraints.FreezeAll;
         boxCollider.isTrigger = true;
          myTurn = false;
@@ -34,12 +44,6 @@ public class LimbDropped : Limb {
         this.transform.SetParent(parent.transform);
 
         animator.SetTrigger("clip");
-
-        canBeTaken = false;
-        Invoke("takenAuth", 0.5f);
-
-        Vector3 forceV = Vector3.up * Random.Range(0, 28) + Vector3.forward * Random.Range(0, 28);
-        rigidBody.AddForce(forceV.normalized * forceF);
 
         return clipped;
 
