@@ -37,9 +37,7 @@ public class GameManager : MonoBehaviour {
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-
-           Debug.Log( Input.GetJoystickNames().Length );
+            
         }
         else
         {
@@ -112,7 +110,7 @@ public class GameManager : MonoBehaviour {
 
         players[numberOfPlayer] = plInst;
 
-        Invoke("playerSpawned", 3);
+        Invoke("playerSpawned", 4.5f);
     }
 
 	private void playerSpawned()

@@ -67,7 +67,7 @@ public class Shooter : Character
     {
         while (idle)
         {
-            print("Shoot ! ");
+            //print("Shoot ! ");
             GameObject gO = Instantiate(bullet, gunPoint.transform.position, Quaternion.identity);
             Bullet bull = gO.GetComponent<Bullet>();
             Vector3 direction = (PlayerPosition - transform.position).normalized;

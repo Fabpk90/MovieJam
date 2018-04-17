@@ -67,7 +67,7 @@ public class Player : Character {
         Invoke("EndInvincible", 2f);
 	}
 
-    void Invincible()
+    void EndInvincible()
     {
         invincible = false;
     }
