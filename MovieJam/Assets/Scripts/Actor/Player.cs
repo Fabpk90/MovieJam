@@ -62,7 +62,9 @@ public class Player : Character {
 		ally = true;
 		movementVec = new Vector3 ();
 
-		aiAgent.acceleration = movementSpeed;
+        soundHandler.Instance.PlaySpawn();
+
+        aiAgent.acceleration = movementSpeed;
 
         Invoke("EndInvincible", 2f);
 	}
@@ -71,18 +73,18 @@ public class Player : Character {
     {
         invincible = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		movementVec.x = Input.GetAxis(axis1X);
-		movementVec.z = Input.GetAxis(axis1Y);
+
+    // Update is called once per frame
+    void Update() {
+        movementVec.x = Input.GetAxis(axis1X);
+        movementVec.z = Input.GetAxis(axis1Y);
 
         //Here, lower the speed in function of your limbs
-        if(listLimb[2] == null && listLimb[3] != null || listLimb[2] != null && listLimb[3] == null)
+        if (listLimb[2] == null && listLimb[3] != null || listLimb[2] != null && listLimb[3] == null)
         {
-            aiAgent.speed = (movementSpeed * 80/100);
+            aiAgent.speed = (movementSpeed * 80 / 100);
         }
-        else if(listLimb[2] == null && listLimb[3] == null)
+        else if (listLimb[2] == null && listLimb[3] == null)
         {
             changeAllAnimatorInt("Leg", 0);
             aiAgent.speed = movementSpeed / 2;
@@ -93,8 +95,10 @@ public class Player : Character {
             changeAllAnimatorInt("Leg", 2);
         }
 
-
-        changeAllAnimatorBool("Walk", movementVec != Vector3.zero);
+        bool b = movementVec != Vector3.zero;
+        changeAllAnimatorBool("Walk", b );
+        if (b)
+            soundHandler.Instance.PlayWalk();
 
         aiAgent.destination = aiAgent.transform.position + movementVec;
 
@@ -131,7 +135,7 @@ public class Player : Character {
 			if (listLimb[1] != null)
             {
                 print("Right");
-                listLimb[1].attack.dash();
+                listLimb[1].attack.attack(direction, bulletSpeed, true);
                 if (listLimb[1].attack.typeAtt == AttackingLimb.typeAttack.shoot)
                     listLimb[1].getAnimator().SetTrigger("RGun");
                 else

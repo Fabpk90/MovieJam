@@ -55,6 +55,7 @@ public class AttackingLimb : MonoBehaviour {
 
     IEnumerator shot(Vector3 direction,float bulletSpeed, bool ally )
     {
+        soundHandler.Instance.PlayShot();
         print("Shoot ! ");
         GameObject gO = Instantiate(bullet, gunPoint.transform.position, Quaternion.identity);
         Bullet bull = gO.GetComponent<Bullet>();
@@ -65,11 +66,13 @@ public class AttackingLimb : MonoBehaviour {
     }
     public void chi()
     {
+        soundHandler.Instance.PlayKi();
 
     }
     public void dash()
     {
-		charClippedOn.Dash(range * charClippedOn.transform.forward);
+        soundHandler.Instance.PlayDash();
+        charClippedOn.Dash(range * charClippedOn.transform.forward);
     }
 
 

@@ -104,7 +104,10 @@ public class GameManager : MonoBehaviour {
     {
         startImage.SetTrigger("Start");
         if (numberOfPlayer == 0)
+        {
+            soundHandler.Instance.ChangeMusic();
             yield return new WaitForSeconds(1f);
+        }
         Player plInst = Instantiate(playerGO, this.transform.position, this.transform.rotation).GetComponentInChildren<Player>();
         plInst.changeController(controller);
 
